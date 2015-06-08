@@ -7,14 +7,6 @@ MAINTAINER Rob Lao "viewpl@gmail.com"
 
 ENV HOME /root
 
-# Regenerate SSH host keys. baseimage-docker does not contain any, so you
-# have to do that yourself. You may also comment out this instruction; the
-# init system will auto-generate one during boot.
-RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
-
-# Add public key for ssh service
-ADD key.pub /root/.ssh/authorized_keys 
-
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 ENV APACHE_PID_FILE /var/run/apache2.pid
